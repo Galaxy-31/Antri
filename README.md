@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/kelasweekend/laravel-antrian-sistem/main/public/assets/logo.png" width="400" alt="logo"></p>
+
 
 ### Website Antrian
 
@@ -12,6 +12,9 @@ Platfrom Sistem Antrian Berbasis Website
 
 **Database:** Mysql MariaDB
 
-### Screenshots
+Account
+Admin
+ admin@admin.com
+ admin123
+ 
 
-![App Screenshot](https://raw.githubusercontent.com/kelasweekend/laravel-antrian-sistem/main/public/assets/siantri.png)
