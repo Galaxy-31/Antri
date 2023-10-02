@@ -17,9 +17,8 @@ use App\Http\Controllers\DaftarController;
 
 Route::get('/', function () {
     return view('welcome');
-    Route::get('', [App\Http\Controllers\V1\DaftarController::class, 'index'])->name('v1.daftars.index');
-    Route::post('', [App\Http\Controllers\V1\DaftarController::class, 'store'])->name('v1.daftars.store');
 });
+Route::resource('daftars', DaftarController::class);
 
 
 Route::get('/home.index', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
