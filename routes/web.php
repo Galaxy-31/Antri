@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DaftarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('daftars', DaftarController::class);
 
 
 Route::get('/home.index', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
@@ -43,3 +45,4 @@ Route::prefix('v1')->middleware('auth')->group(function () {
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
