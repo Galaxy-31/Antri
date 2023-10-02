@@ -51,15 +51,15 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="https://assets.dataindonesia.id/1638360553464_59_Permata.png"
+                                <img src="https://images.tokopedia.net/img/cache/1208/NsjrJu/2023/4/14/98e01865-e276-42ef-81da-6513ed1f1f7d.jpg.webp"
                                     class="d-block w-100 img-ads" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="https://asset.kompas.com/crops/TeAOjNWSHe2hg-5o8gQi_xcv9Ms=/0x0:5157x3438/750x500/data/photo/2022/12/02/638990e07d28c.jpg"
+                                <img src="https://images.tokopedia.net/img/cache/1208/NsjrJu/2023/4/14/98e01865-e276-42ef-81da-6513ed1f1f7d.jpg.webp"
                                     class="d-block w-100 img-ads" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="https://akcdn.detik.net.id/visual/2020/07/13/logo-bca_169.jpeg?w=480&q=90"
+                                <img src="https://images.tokopedia.net/img/cache/1208/NsjrJu/2023/4/14/98e01865-e276-42ef-81da-6513ed1f1f7d.jpg.webp"
                                     class="d-block w-100 img-ads" alt="...">
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                 <div class="d-flex">
                     <i class="fas fa-info-circle"></i>
                     <marquee direction="left">
-                    Robust
+               Selamat Datang Di Bank Robust Creative Media
                     </marquee>
                 </div>
             </div>

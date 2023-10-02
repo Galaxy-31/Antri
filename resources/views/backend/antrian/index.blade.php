@@ -1,204 +1,91 @@
 @extends('layouts.backend.master')
-
 @section('title')
-    Kelola Loket
+    Loket Management
 @endsection
 
-@section("content")
-
-
-<!-- index -->
-@if(session('status'))
+@section('content')
     <div class="row">
-        <div class="col-md-12">
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{session('status')}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Nomor Antrian</h4>
+                </div>
+                <div class="card-body text-center">
+                    <h1 class="antri">
+                        {{ $data->nomor }}
+                    </h1>
+                </div>
+                <div class="card-footer text-center">
+                    <h4 class="mb-0">{{ $data->loket->tujuan }}</h4>
+                </div>
             </div>
         </div>
-    </div>
-    @endif
 
-    <div class="card shadow mb-4">
-        <!-- <div class="card-header py-3">
-            <div class="input-group-append">
-                <a href="{{route('v1.pendaftarans.index')}}" class="btn btn-primary">Tambah pendaftaran</a>
-            </div>
-        </div> -->
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                    <th width="25%"><b>Gambar</b></th>
-                    <th width="25%"><b>NIK</b></th>
-                    <th width="25%"><b>Nama</b></th>
-                    <th width="25%"><b>Aksi</b></th>
-                    <th width="25%"><b>Gambar</b></th>
-                    <th width="25%"><b>NIK</b></th>
-                    <th width="25%"><b>Nama</b></th>
-                    <th width="25%"><b>Aksi</b></th>
-                    <th width="25%"><b>Gambar</b></th>
-                    <th width="25%"><b>NIK</b></th>
-                    <th width="25%"><b>Nama</b></th>
-                    <th width="25%"><b>Aksi</b></th>
-                    </tr>
-                </thead>
-                <tbody>
-                @foreach ($pendaftarans as $p)
-                   <tr>
-                   <td>
-                        @if($p->foto)
-                            <img
-                            src="{{asset('storage/' . $p->foto)}}"
-                            width="48px"/>
-                        @else
-                            No image
-                        @endif
-                    </td>
-                   <td>{{$p->nik}}</td>
-                   <td>{{$p->nama}}</td>
-                   <td>
-                        <a href="{{route('pendaftarans.show', ['id' => $p->nik])}}" class="btn btn-info">Detail</a>
-                        <a href="{{route('pendaftarans.edit', ['id' => $p->nik])}}" class="btn btn-success">Ubah</a>
-                        <form  class="d-inline" action="{{route('pendaftarans.destroy', ['id' => $p->nik])}}"
-                        method="POST"  onsubmit="return confirm('Apakah Anda Yakin Akan Menghapus pendaftaran?')" >
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Setting Antrian</h4>
+                </div>
+                <div class="card-body text-center">
+                    <form action="{{ route('v1.antrian.next') }}" method="POST" class="mb-3">
                         @csrf
-                        <input type="hidden"name="_method" value="DELETE"/>
-                        <button type="submit" class="btn btn-danger" >Hapus</button>
-                        </form>
-                   </td>
-                   </tr>
-                @endforeach
-                </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-<!-- index -->
-  <div class="card shadow mb-4">
-    <div class="card-body">
-      <form enctype="multipart/form-data"  action="{{route('v1.pendaftarans.store')}}"  method="POST">
-        @csrf
-       <div class='form-row'>
-
-            <div class="form-group col-12">
-                <label>Nik : </label>
-                <input type="number" name="nik" class="form-control {{$errors->first('nik') ? "is-invalid" : ""}}" value="{{old('nik')}}" required/>
-                <div class="invalid-feedback">
-                    {{$errors->first('nik')}}
+                        <input type="text" hidden name="antrian" value="{{ $data->nomor }}">
+                        <input type="text" hidden name="kode" value="{{ $data->loket->kode }}">
+                        <button type="submit" class="btn w-100 btn-primary">
+                            Panggil Selanjutnya
+                            <i class="bi bi-arrow-right-square-fill"></i>
+                        </button>
+                    </form>
+                    <button type="button" id="ulangi" class="btn w-100 btn-danger">
+                        <i class="bi bi-arrow-repeat"></i>
+                        Ulangi Panggilan
+                    </button>
                 </div>
-            </div>
-
-            <div class="form-group col-12">
-                <label>Nama : </label>
-                <input type="text" name="nama" value="{{old('nama')}}" class="form-control" required/>
-            </div>
-
-            <div class="form-group col-6">
-                <label>Tempat Lahir : </label>
-                <input type="text" name="tempat" value="{{old('tempat')}}" class="form-control" required/>
-            </div>
-
-            <div class="form-group col-6">
-                <label>Tgl Lahir : </label>
-                <input type="date" name="tanggal" value="{{old('tanggal')}}" class="form-control {{$errors->first('tanggal') ? "is-invalid" : ""}}" required/>
-                <div class="invalid-feedback">
-                    {{$errors->first('tanggal')}}
-                </div>
-            </div>
-
-            <div class="form-group col-6">
-                <label>Jenis Kelamin : </label>
-                <select class="form-control" name="jenkel" required>
-                    <option value="Laki-Laki" {{old('jenkel') == 'Laki-Laki' ? 'selected' : ''}}>Laki-Laki</option>
-                    <option value="Perempuan" {{old('jenkel') == 'Perempuan' ? 'selected' : ''}}>Perempuan</option>
-                </select>
-            </div>
-
-            <div class="form-group col-6">
-                <label>Golongan Darah : </label>
-                <select class="form-control" name="goldarah" required>
-                    <option value="A" {{old('goldarah') == 'A' ? 'selected' : ''}}>A</option>
-                    <option value="B" {{old('goldarah') == 'B' ? 'selected' : ''}}>B</option>
-                    <option value="O" {{old('goldarah') == 'O' ? 'selected' : ''}}>O</option>
-                    <option value="AB" {{old('goldarah') == 'AB' ? 'selected' : ''}}>AB</option>
-                </select>
-            </div>
-
-            <div class="form-group col-12">
-                <label>Alamat : </label>
-                <textarea name="alamat" class="form-control">{{old('alamat')}}</textarea>
-            </div>
-
-            <div class="form-group col-2">
-                <label>RT : </label>
-                <input type="numer" name="rt" value="{{old('rt')}}" class="form-control" required/>
-            </div>
-
-            <div class="form-group col-2">
-                <label>RW : </label>
-                <input type="numer" name="rw" value="{{old('rw')}}" class="form-control" required/>
-            </div>
-
-            <div class="form-group col-4">
-                <label>Kel/Desa : </label>
-                <input type="text" name="kel" value="{{old('rt')}}" class="form-control" required/>
-            </div>
-
-            <div class="form-group col-4">
-                <label>Kecamatan : </label>
-                <input type="text" name="kec" value="{{old('kec')}}" class="form-control" required/>
-            </div>
-
-            <div class="form-group col-6">
-                <label>Agama : </label>
-                <select class="form-control" name="agama" required>
-                    <option value="Katholik" {{old('agama') == 'Katholik' ? 'selected' : ''}}>Katholik</option>
-                    <option value="Kristen" {{old('agama') == 'Kristen' ? 'selected' : ''}}>Kristen</option>
-                    <option value="Islam" {{old('agama') == 'Islam' ? 'selected' : ''}}>Islam</option>
-                    <option value="Hindu" {{old('agama') == 'Hindu' ? 'selected' : ''}}>Hindu</option>
-                    <option value="Budha" {{old('agama') == 'Budha' ? 'selected' : ''}}>Budha</option>
-                    <option value="Konghucu" {{old('agama') == 'Konghucu' ? 'selected' : ''}}>Konghucu</option>
-                </select>
-            </div>
-
-            <div class="form-group col-6">
-                <label>Status Perkawinan : </label>
-                <select class="form-control" name="kawin"  required>
-                    <option value="Kawin" {{old('kawin') == 'Kawin' ? 'selected' : ''}}>Kawin</option>
-                    <option value="Belum Kawin" {{old('kawin') == 'Belum Kawin' ? 'selected' : ''}}>Belum Kawin</option>
-                </select>
-            </div>
-
-            <div class="form-group col-6">
-                <label>Pekerjaan : </label>
-                <input type="text" name="pekerjaan" value="{{old('pekerjaan')}}" class="form-control" required/>
-            </div>
-
-            <div class="form-group col-6">
-                <label>Kewarganegaraan : </label>
-                <select class="form-control" name="kewarga" required>
-                    <option value="WNI" {{old('kewarga') == 'WNI' ? 'selected' : ''}}>WNI</option>
-                    <option value="WNA" {{old('kewarga') == 'WNA' ? 'selected' : ''}}>WNA</option>
-                </select>
-            </div>
-
-            <div class="form-group col-12">
-                <label>Foto : </label><br>
-                <input type="file" name="image" value="{{old('image')}}" class="form-control {{$errors->first('image') ? "is-invalid" : ""}}"/>
-                <div class="invalid-feedback">
-                    {{$errors->first('image')}}
+                <div class="card-footer">
+                    <p class="text-center text-muted">
+                        Apabila Pelanggan Tidak Ada Hingga Panggilan 3x Maka Silahkan Lanjutkan Nomor Antrian
+                    </p>
                 </div>
             </div>
         </div>
-        <br>
-        <hr>
-        <input type="submit" class="btn btn-primary" value="Tambah">
-      </form>
     </div>
-  </div>
+@endsection
+
+@section('styles')
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@600&display=swap" rel="stylesheet">
+    <style>
+        .antri {
+            font-family: 'DynaPuff', cursive;
+            font-weight: 600;
+            font-size: 80px
+        }
+    </style>
+@endsection
+
+@section('scripts')
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=jQZ2zcdq"></script>
+    @if (session('finish'))
+        <script>
+            responsiveVoice.speak("Nomor Antrian, " + '{{ $data->nomor }}' +
+                ", menuju, loket, " + '{{ $data->loket->tujuan }}',
+                "Indonesian Male", {
+                    rate: 0.8,
+                    pitch: 1,
+                    volume: 100
+                });
+        </script>
+    @endif
+    <script>
+        $('#ulangi').click(function() {
+            responsiveVoice.speak("Kami Ulangi, " + " Nomor Antrian, " + '{{ $data->nomor }}' +
+                ", menuju, loket, " + '{{ $data->loket->tujuan }}',
+                "Indonesian Male", {
+                    rate: 0.8,
+                    pitch: 1,
+                    volume: 100
+                });
+        });
+    </script>
 @endsection
