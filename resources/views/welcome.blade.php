@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welcome</title>
 </head>
 <style>
     :root {
@@ -226,8 +226,7 @@ h1 {
 </style>
 <body>
 <main class="main-content  mt-0 ">
-        <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
-            style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg'); background-position: top;">
+        <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg'); background-position: top;">
             <span class="mask bg-gradient-dark opacity-6"></span>
             <div class="container">
                 <div class="row justify-content-center">
@@ -236,11 +235,11 @@ h1 {
                         <p class="text-lead text-white"> Aplikasi Point Of Sales</p>
                         <div class="row px-xl-5 px-sm-4 px-3">
                             <div class="mt-2 position-relative text-center">
-                                <a href="{{ route('login') }}" class="btn btn-primary">Lanjut ke Sign In</a>
+                                <a href="{{ route('v1.pendaftarans.index') }}" class="btn btn-primary">Lanjut ke Sign In</a>
                             </div>
                         </div>
                     </div>
-                </div>
+              </div>
         </div>
     </main>
 </body>

@@ -85,7 +85,7 @@
                                         <img src="{{ asset('assets/images/faces/1.jpg') }}" alt="Avatar">
                                     </div>
                                     <div class="text">
-                                        <h6 class="user-dropdown-name">{{ auth()->user()->name }}</h6>
+                                        <h6 class="user-dropdown-name"></h6>
                                         <p class="user-dropdown-status text-sm text-muted">
                                             Member
                                         </p>

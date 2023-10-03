@@ -32,35 +32,55 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                    <th width="25%"><b>Gambar</b></th>
-                    <th width="25%"><b>NIK</b></th>
-                    <th width="25%"><b>Nama</b></th>
-                    <th width="25%"><b>Aksi</b></th>
-                    <th width="25%"><b>Gambar</b></th>
-                    <th width="25%"><b>NIK</b></th>
-                    <th width="25%"><b>Nama</b></th>
-                    <th width="25%"><b>Aksi</b></th>
-                    <th width="25%"><b>Gambar</b></th>
-                    <th width="25%"><b>NIK</b></th>
-                    <th width="25%"><b>Nama</b></th>
-                    <th width="25%"><b>Aksi</b></th>
+                    <th>No</th>
+                    <th>Nik</th>
+                    <th>Nama</th>
+                    <th>Tempat</th>
+                    <th>Tanggal</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Golongan Darah</th>
+                    <th>Alamat</th>
+                    <th>Rt</th>
+                    <th>RW</th>
+                    <th>Desa</th>
+                    <th>Kecamatan</th>
+                    <th>Agama</th>
+                    <th>Status Perkawinan</th>
+                    <th>Pekerjaan</th>
+                    <th>Kewarganegaraan</th>
+                    <th>Foto</th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($pendaftarans as $p)
+                @foreach ($pendaftarans as $pendaftaran)
                    <tr>
                    <td>
-                        @if($p->foto)
+                        @if($pendaftaran->foto)
                             <img
-                            src="{{asset('storage/' . $p->foto)}}"
+                            src="{{asset('storage/' . $pendaftaran->foto)}}"
                             width="48px"/>
                         @else
                             No image
                         @endif
-                    </td>
-                   <td>{{$p->nik}}</td>
-                   <td>{{$p->nama}}</td>
-                   <td>
+                </tr>
+                   <td>{{ ++$i }}</td>
+                    <td> {{$pendaftarans->nik}}</td>
+                    <td> {{$pendaftarans->nama}}</td>
+                    <td> {{$pendaftarans->tempat}}</td>
+                    <td> {{$pendaftarans->tanggal}}</td>
+                    <td> {{$pendaftarans->jenkel}}</td>
+                    <td> {{$pendaftarans->goldarah}}</td>
+                    <td> {{$pendaftarans->alamat}}</td>
+                    <td> {{$pendaftarans->rt}}</td>
+                    <td> {{$pendaftarans->rw}}</td>
+                    <td> {{$pendaftarans->kel}}</td>
+                    <td> {{$pendaftarans->kec}}</td>
+                    <td> {{$pendaftarans->agama}}</td>
+                    <td> {{$pendaftarans->kawin}}</td>
+                    <td> {{$pendaftarans->pekerjaan}}</td>
+                    <td> {{$pendaftarans->kewarga}}</td>
+                    <td> {{$pendaftarans->image}}</td>
+                   <tr>
                         <a href="{{route('pendaftarans.show', ['id' => $p->nik])}}" class="btn btn-info">Detail</a>
                         <a href="{{route('pendaftarans.edit', ['id' => $p->nik])}}" class="btn btn-success">Ubah</a>
                         <form  class="d-inline" action="{{route('pendaftarans.destroy', ['id' => $p->nik])}}"
@@ -114,6 +134,7 @@
             <div class="form-group col-6">
                 <label>Jenis Kelamin : </label>
                 <select class="form-control" name="jenkel" required>
+                    <option value="">Silahkan Pilih</option>
                     <option value="Laki-Laki" {{old('jenkel') == 'Laki-Laki' ? 'selected' : ''}}>Laki-Laki</option>
                     <option value="Perempuan" {{old('jenkel') == 'Perempuan' ? 'selected' : ''}}>Perempuan</option>
                 </select>
@@ -122,6 +143,7 @@
             <div class="form-group col-6">
                 <label>Golongan Darah : </label>
                 <select class="form-control" name="goldarah" required>
+                    <option value="">Silahkan Pilih</option>
                     <option value="A" {{old('goldarah') == 'A' ? 'selected' : ''}}>A</option>
                     <option value="B" {{old('goldarah') == 'B' ? 'selected' : ''}}>B</option>
                     <option value="O" {{old('goldarah') == 'O' ? 'selected' : ''}}>O</option>
@@ -157,6 +179,7 @@
             <div class="form-group col-6">
                 <label>Agama : </label>
                 <select class="form-control" name="agama" required>
+                    <option value="">Silahkan Pilih Agama</option>
                     <option value="Katholik" {{old('agama') == 'Katholik' ? 'selected' : ''}}>Katholik</option>
                     <option value="Kristen" {{old('agama') == 'Kristen' ? 'selected' : ''}}>Kristen</option>
                     <option value="Islam" {{old('agama') == 'Islam' ? 'selected' : ''}}>Islam</option>

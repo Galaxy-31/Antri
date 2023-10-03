@@ -18,6 +18,13 @@
             </a>
         </li>
 
+        <li class="sidebar-item {{ request()->is('v1/pendaftarans*') ? 'active' : '' }}">
+            <a href="{{ route('v1.pendaftarans.store') }}" class='sidebar-link'>
+                <i class="bi bi-door-open-fill"></i>
+                <span>Mulai Antrian</span>
+            </a>
+        </li>
+
         <li class="sidebar-title">Configurasi</li>
 
         <li class="sidebar-item {{ request()->is('v1/loket*') ? 'active' : '' }}">
