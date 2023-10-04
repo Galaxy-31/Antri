@@ -15,14 +15,14 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-    $pendaftaran = Pendaftaran::latest()->paginate(5);
-    return view('backend.pendaftaran.index',compact('pendaftaran'))->with('i', (request()->input('page', 1) - 1) * 5);
+    $pendaftarans = Pendaftaran::latest()->paginate(5);
+    return view('backend.pendaftarans.index',compact('pendaftarans'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 
     public function create()
     {
-    return view('pendaftaran.create');
+    return view('pendaftarans.create');
     }
 
 
@@ -63,7 +63,7 @@ class PendaftaranController extends Controller
 
         $pendaftaran->save();
 
-        return redirect()->route('pendaftaran.index')->with('status', 'Pendaftaran Berhasil Di Buat');
+        return redirect()->route('pendaftarans.index')->with('status', 'Pendaftaran Berhasil Di Buat');
     }
 
 
@@ -71,20 +71,20 @@ class PendaftaranController extends Controller
     public function show($id)
     {
         $pendaftaran = \App\Pendaftaran::findOrFail($id);
-        return view('pendaftaran.show', ['pedaftaran' => $pendaftaran
+        return view('pendaftarans.show', ['pedaftaran' => $pendaftaran
     ]);
     }
 
     public function edit($id)
     {
         $pendaftaran = \App\Pendaftaran::findOrFail($id);
-        return view('pendaftaran.edit', ['pendaftaran' => $pendaftaran]);
+        return view('pendaftarans.edit', ['pendaftaran' => $pendaftaran]);
     }
 
     public function update(Request $request, $id)
     {
         \Validator::make($request->all(),
-        ['nik' => [Rule::unique('pendaftaran')->ignore($id,'nik')],
+        ['nik' => [Rule::unique('pendaftarans')->ignore($id,'nik')],
         'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'tanggal' => 'before:-17 years',]
         ,['unique' => 'No NIK Tidak Boleh Sama',
@@ -130,7 +130,7 @@ class PendaftaranController extends Controller
 
         $pendaftaran->save();
 
-        return redirect()->route('pendaftaran.index')->with('status', 'pendaftaran Berhasil Di Ubah');
+        return redirect()->route('pendaftarans.index')->with('status', 'pendaftaran Berhasil Di Ubah');
     }
 
 
@@ -143,7 +143,7 @@ class PendaftaranController extends Controller
             \Storage::delete('public/' . $pendaftaran->foto);
         }
         $pendaftaran->delete();
-        return redirect()->route('pendaftaran.index')->with('status', 'pen$pendaftaran Berhasil Di Hapus');
+        return redirect()->route('pendaftarans.index')->with('status', 'pen$pendaftaran Berhasil Di Hapus');
 
     }
 }
