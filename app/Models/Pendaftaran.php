@@ -15,8 +15,22 @@ use HasFactory;
         protected $casts = ['nik' => 'bigint'];
 
         protected $fillable = [
-            'nik', 'nama', 'tmpt_lhr','tgl_lhir','jenkel','goldarah',
-            'alamat','rt','rw','kel','kec','agama','status','pekerjaan',
-            'kewarga','berlaku','foto'
+            'nik',
+            'nama',
+            'tmpt_lhr',
+            'tgl_lhir',
+            'jenkel',
+            'goldarah',
+            'alamat',
+            'rt',
+            'rw',
+            'kel',
+            'kec',
+            'agama',
+            'status',
+            'pekerjaan',
+            'kewarga',
+            'berlaku',
+            'foto'
         ];
 }

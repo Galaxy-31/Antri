@@ -130,6 +130,7 @@
                             <fieldset class="form-group">
                                 <select class="form-select @error('user') is-invalid @enderror" value="{{ old('user') }}"
                                     name="user" id="basicSelect">
+                                    <option value="">--- Silahkan Pilih PJ Loket ---</option>
                                     @foreach ($user as $usr)
                                         <option value="{{ $usr->id }}">{{ $usr->name }}</option>
                                     @endforeach
