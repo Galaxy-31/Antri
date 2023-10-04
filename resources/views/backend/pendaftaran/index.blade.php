@@ -24,7 +24,7 @@
     <div class="card shadow mb-4">
         <!-- <div class="card-header py-3">
             <div class="input-group-append">
-                <a href="{{route('v1.pendaftarans.index')}}" class="btn btn-primary">Tambah pendaftaran</a>
+                <a href="{{route('v1.pendaftaran.index')}}" class="btn btn-primary">Tambah pendaftaran</a>
             </div>
         </div> -->
         <div class="card-body">
@@ -52,7 +52,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($pendaftarans as $pendaftaran)
+                @foreach ($pendaftaran as $pendaftaran)
                    <tr>
                    <td>
                         @if($pendaftaran->foto)
@@ -64,26 +64,26 @@
                         @endif
                 </tr>
                    <td>{{ ++$i }}</td>
-                    <td> {{$pendaftarans->nik}}</td>
-                    <td> {{$pendaftarans->nama}}</td>
-                    <td> {{$pendaftarans->tempat}}</td>
-                    <td> {{$pendaftarans->tanggal}}</td>
-                    <td> {{$pendaftarans->jenkel}}</td>
-                    <td> {{$pendaftarans->goldarah}}</td>
-                    <td> {{$pendaftarans->alamat}}</td>
-                    <td> {{$pendaftarans->rt}}</td>
-                    <td> {{$pendaftarans->rw}}</td>
-                    <td> {{$pendaftarans->kel}}</td>
-                    <td> {{$pendaftarans->kec}}</td>
-                    <td> {{$pendaftarans->agama}}</td>
-                    <td> {{$pendaftarans->kawin}}</td>
-                    <td> {{$pendaftarans->pekerjaan}}</td>
-                    <td> {{$pendaftarans->kewarga}}</td>
-                    <td> {{$pendaftarans->image}}</td>
+                    <td> {{$pendaftaran->nik}}</td>
+                    <td> {{$pendaftaran->nama}}</td>
+                    <td> {{$pendaftaran->tempat}}</td>
+                    <td> {{$pendaftaran->tanggal}}</td>
+                    <td> {{$pendaftaran->jenkel}}</td>
+                    <td> {{$pendaftaran->goldarah}}</td>
+                    <td> {{$pendaftaran->alamat}}</td>
+                    <td> {{$pendaftaran->rt}}</td>
+                    <td> {{$pendaftaran->rw}}</td>
+                    <td> {{$pendaftaran->kel}}</td>
+                    <td> {{$pendaftaran->kec}}</td>
+                    <td> {{$pendaftaran->agama}}</td>
+                    <td> {{$pendaftaran->kawin}}</td>
+                    <td> {{$pendaftaran->pekerjaan}}</td>
+                    <td> {{$pendaftaran->kewarga}}</td>
+                    <td> {{$pendaftaran->image}}</td>
                    <tr>
-                        <a href="{{route('pendaftarans.show', ['id' => $p->nik])}}" class="btn btn-info">Detail</a>
-                        <a href="{{route('pendaftarans.edit', ['id' => $p->nik])}}" class="btn btn-success">Ubah</a>
-                        <form  class="d-inline" action="{{route('pendaftarans.destroy', ['id' => $p->nik])}}"
+                        <a href="{{route('pendaftaran.show', ['id' => $p->nik])}}" class="btn btn-info">Detail</a>
+                        <a href="{{route('pendaftaran.edit', ['id' => $p->nik])}}" class="btn btn-success">Ubah</a>
+                        <form  class="d-inline" action="{{route('pendaftaran.destroy', ['id' => $p->nik])}}"
                         method="POST"  onsubmit="return confirm('Apakah Anda Yakin Akan Menghapus pendaftaran?')" >
                         @csrf
                         <input type="hidden"name="_method" value="DELETE"/>
@@ -101,7 +101,7 @@
 <!-- index -->
   <div class="card shadow mb-4">
     <div class="card-body">
-      <form enctype="multipart/form-data"  action="{{route('v1.pendaftarans.store')}}"  method="POST">
+      <form enctype="multipart/form-data"  action="{{route('v1.pendaftaran.store')}}"  method="POST">
         @csrf
        <div class='form-row'>
 
