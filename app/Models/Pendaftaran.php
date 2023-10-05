@@ -31,6 +31,6 @@ use HasFactory;
             'pekerjaan',
             'kewarga',
             'berlaku',
-            'foto'
+            'foto',
         ];
 }

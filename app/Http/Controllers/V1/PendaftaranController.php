@@ -15,8 +15,8 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-    $pendaftarans = Pendaftaran::latest()->paginate(5);
-    return view('backend.pendaftarans.index',compact('pendaftarans'))->with('i', (request()->input('page', 1) - 1) * 5);
+    $pendaftarans = Pendaftaran::all();
+    return view('backend.pendaftaran.index',compact('pendaftarans'))->with('$   i', (request()->input('page', 1) - 1) * 5);
     }
 
 

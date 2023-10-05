@@ -57,7 +57,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($pendaftaran as $pendaftaran)
+                @foreach ($pendaftarans as $dd)
                    <tr>
                    <td>
                         @if($pendaftaran->foto)
@@ -69,22 +69,22 @@
                         @endif
                     </td>
                     <td>{{ ++$i }}</td>
-                    <td> {{$pendaftaran->nik}}</td>
-                    <td> {{$pendaftaran->nama}}</td>
-                    <td> {{$pendaftaran->tempat}}</td>
-                    <td> {{$pendaftaran->tanggal}}</td>
-                    <td> {{$pendaftaran->jenkel}}</td>
-                    <td> {{$pendaftaran->goldarah}}</td>
-                    <td> {{$pendaftaran->alamat}}</td>
-                    <td> {{$pendaftaran->rt}}</td>
-                    <td> {{$pendaftaran->rw}}</td>
-                    <td> {{$pendaftaran->kel}}</td>
-                    <td> {{$pendaftaran->kec}}</td>
-                    <td> {{$pendaftaran->agama}}</td>
-                    <td> {{$pendaftaran->kawin}}</td>
-                    <td> {{$pendaftaran->pekerjaan}}</td>
-                    <td> {{$pendaftaran->kewarga}}</td>
-                    <td> {{$pendaftaran->image}}</td>
+                    <td> {{$dd->nik}}</td>
+                    <td> {{$dd->nama}}</td>
+                    <td> {{$dd->tempat}}</td>
+                    <td> {{$dd->tanggal}}</td>
+                    <td> {{$dd->jenkel}}</td>
+                    <td> {{$dd->goldarah}}</td>
+                    <td> {{$dd->alamat}}</td>
+                    <td> {{$dd->rt}}</td>
+                    <td> {{$dd->rw}}</td>
+                    <td> {{$dd->kel}}</td>
+                    <td> {{$dd->kec}}</td>
+                    <td> {{$dd->agama}}</td>
+                    <td> {{$dd->kawin}}</td>
+                    <td> {{$dd->pekerjaan}}</td>
+                    <td> {{$dd->kewarga}}</td>
+                    <td> {{$dd->image}}</td>
                    <tr>
 
                    </tr>
