@@ -85,10 +85,7 @@
                                         <img src="{{ asset('assets/images/faces/1.jpg') }}" alt="Avatar">
                                     </div>
                                     <div class="text">
-                                        <h6 class="user-dropdown-name"> Ambil Nama (Seeder)</h6>
-                                        <p class="user-dropdown-status text-sm text-muted">
-                                            Member
-                                        </p>
+                                        <h6 class="user-dropdown-name">{{ auth()->user()->name }}</h6>
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end shadow-lg"
@@ -118,14 +115,7 @@
             </div>
 
             <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2023 &copy; Robust Creative Media</p>
-                    </div>
-                    <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart me-1"></i></span>Robust</p>
-                    </div>
-                </div>
+        
             </footer>
         </div>
     </div>

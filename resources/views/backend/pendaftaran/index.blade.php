@@ -1,7 +1,7 @@
 @extends('layouts.backend.master')
 
 @section('title')
-    Kelola Loket
+    Pendaftaran
 @endsection
 
 @section("content")

@@ -9,7 +9,6 @@
             </a>
         </li>
 
-        <li class="sidebar-title">Kelola Antrian</li>
 
         <li class="sidebar-item {{ request()->is('v1/antrian*') ? 'active' : '' }}">
             <a href="{{ route('v1.antrian') }}" class='sidebar-link'>
@@ -25,7 +24,6 @@
             </a>
         </li> -->
 
-        <li class="sidebar-title">Configurasi</li>
 
         <li class="sidebar-item {{ request()->is('v1/loket*') ? 'active' : '' }}">
             <a href="{{ route('v1.loket') }}" class='sidebar-link'>
