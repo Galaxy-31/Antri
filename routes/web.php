@@ -14,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
-Route::post('/', [App\Http\Controllers\HomeController::class, 'store'])->name('index.store');
+Route::get('/pendaftarans', [App\Http\Controllers\V1\PendaftaranController::class, 'index'])->name('v1.pendaftarans.index');
+Route::post('/pendaftarans/store', [App\Http\Controllers\V1\PendaftaranController::class, 'store'])->name('v1.pendaftarans.store');
+Route::get('/lokets', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::post('/lokets/store', [App\Http\Controllers\HomeController::class, 'store'])->name('index.store');
+
 
 Auth::routes();
 

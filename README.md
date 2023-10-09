@@ -1,5 +1,4 @@
 
-
 ### Website Antrian
 
 Platfrom Sistem Antrian Berbasis Website
@@ -12,9 +11,5 @@ Platfrom Sistem Antrian Berbasis Website
 
 **Database:** Mysql MariaDB
 
-Account
-Admin
- admin@admin.com
- admin123
- 
+### Screenshots
 
