@@ -69,7 +69,7 @@
     @if (session('finish'))
         <script>
             responsiveVoice.speak("Nomor Antrian, " + '{{ $data->nomor }}' +
-                ", menuju, loket, " + '{{ $data->loket->tujuan }}',
+                ", menuju, " + '{{ $data->loket->tujuan }}',
                 "Indonesian Male", {
                     rate: 0.8,
                     pitch: 1,
@@ -80,7 +80,7 @@
     <script>
         $('#ulangi').click(function() {
             responsiveVoice.speak("Kami Ulangi, " + " Nomor Antrian, " + '{{ $data->nomor }}' +
-                ", menuju, loket, " + '{{ $data->loket->tujuan }}',
+                ", menuju, " + '{{ $data->loket->tujuan }}',
                 "Indonesian Male", {
                     rate: 0.8,
                     pitch: 1,

@@ -21,10 +21,10 @@ return new class extends Migration
             $table->enum('jenkel',['Laki-Laki','Perempuan']);
             $table->enum('goldarah',['A','B','O','AB']);
             $table->text('alamat');
-            $table->char('rt',4);
-            $table->char('rw',4);
-            $table->string('kel',50);
-            $table->string('kec',50);
+            // $table->char('rt',4);
+            // $table->char('rw',4);
+            // $table->string('kel',50);
+            // $table->string('kec',50);
             $table->enum('agama',['Katholik','Kristen','Islam','Hindu','Budha','Konghucu']);
             $table->enum('status',['Kawin','Belum Kawin']);
             $table->string('pekerjaan',50);

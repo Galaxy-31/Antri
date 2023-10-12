@@ -232,10 +232,10 @@ h1 {
                 <div class="row justify-content-center">
                     <div class="col-lg-5 text-center mx-auto">
                         <h1 class="text-white mb-2 mt-5">Halo Pengguna!</h1>
-                        <p class="text-lead text-white"> Aplikasi Point Of Sales</p>
+                        <p class="text-lead text-white"> </p>
                         <div class="row px-xl-5 px-sm-4 px-3">
                             <div class="mt-2 position-relative text-center">
-                                <a href="{{ route('v1.pendaftarans.index') }}" class="btn btn-primary">Lanjut ke Sign In</a>
+                                <a href="{{ route('login') }}" class="btn btn-primary">Lanjut Untuk Daftar</a>
                             </div>
                         </div>
                     </div>
