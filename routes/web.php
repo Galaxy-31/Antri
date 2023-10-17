@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+Use App\Http\Controllers\DaftarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('daftars', DaftarController::class);
+  
 Route::get('/pendaftarans', [App\Http\Controllers\V1\PendaftaranController::class, 'index'])->name('v1.pendaftarans.index');
 Route::post('/pendaftarans/store', [App\Http\Controllers\V1\PendaftaranController::class, 'store'])->name('v1.pendaftarans.store');
 Route::get('/lokets', [App\Http\Controllers\HomeController::class, 'index'])->name('index');

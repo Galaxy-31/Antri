@@ -45,11 +45,6 @@
                     <th>Jenis Kelamin</th>
                     <th>Golongan Darah</th>
                     <th>Alamat</th>
-                    {{-- <th>Rt</th>
-                    <th>RW</th>
-                    <th>Desa</th>
-                    <th>Kecamatan</th>
-                    <th>Agama</th> --}}
                     <th>Status Perkawinan</th>
                     <th>Pekerjaan</th>
                     <th>Kewarganegaraan</th>
@@ -76,10 +71,6 @@
                     <td> {{$dd->jenkel}}</td>
                     <td> {{$dd->goldarah}}</td>
                     <td> {{$dd->alamat}}</td>
-                    {{-- <td> {{$dd->rt}}</td>
-                    <td> {{$dd->rw}}</td>
-                    <td> {{$dd->kel}}</td>
-                    <td> {{$dd->kec}}</td> --}}
                     <td> {{$dd->agama}}</td>
                     <td> {{$dd->kawin}}</td>
                     <td> {{$dd->pekerjaan}}</td>

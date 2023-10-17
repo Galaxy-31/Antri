@@ -3,8 +3,8 @@
         <li class="sidebar-title">Utama</li>
 
         <li class="sidebar-item {{ request()->is('v1') ? 'active' : '' }}">
-            <a href="{{ route('v1.pendaftarans.index') }}" class='sidebar-link'>
-                <i class="bi bi-grid-fill" href="{{ route('v1.pendaftarans.index') }}"></i>
+            <a href="{{ route('daftars.index') }}" class='sidebar-link'>
+                <i class="bi bi-grid-fill" href="{{ route('daftars.index') }}"></i>
                 <span>Dashboard</span>
             </a>
         </li>

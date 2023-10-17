@@ -5,6 +5,9 @@ namespace App\Http\Controllers\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
+use Dotenv\Validator;
+
+
 
 class PendaftaranController extends Controller
 {
@@ -16,9 +19,8 @@ class PendaftaranController extends Controller
     public function index()
     {
     $pendaftarans = Pendaftaran::all();
-    return view('backend.pendaftaran.index',compact('pendaftarans'))->with('$   i', (request()->input('page', 1) - 1) * 5);
+    return view('backend.pendaftarans.index',compact('pendaftarans'))->with('$   i', (request()->input('page', 1) - 1) * 5);
     }
-
 
     public function create()
     {
@@ -109,10 +111,6 @@ class PendaftaranController extends Controller
         $pendaftaran->jenkel =  $request->get('jenkel');
         $pendaftaran->goldarah =  $request->get('goldarah');
         $pendaftaran->alamat =  $request->get('alamat');
-        // $pendaftaran->rt =  $request->get('rt');
-        // $pendaftaran->rw =  $request->get('rw');
-        // $pendaftaran->kel =  $request->get('kel');
-        // $pendaftaran->kec =  $request->get('kec');
         $pendaftaran->agama =  $request->get('agama');
         $pendaftaran->status =  $request->get('kawin');
         $pendaftaran->pekerjaan =  $request->get('pekerjaan');
