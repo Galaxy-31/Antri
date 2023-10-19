@@ -95,8 +95,14 @@
                     <div class="col-3">
                         <div class="card">
                             <h4>Nomor Antrian</h4>
-                            <h2 id="nomor-{{ $item->id }}">-</h2>
-                            <p>{{ $item->tujuan }}</p>
+                            <h2 id="nomor-{{ @$item->id }}">
+                            @if($item->antrian->isNotEmpty())
+                            {{ $item->antrian->last()->nomor }}
+                            @else
+                                No data available
+                            @endif
+                        </h2>
+                            <p>{{ @$item->tujuan }}</p>
                         </div>
                     </div>
                 @endforeach
@@ -136,37 +142,7 @@
     </script>
     <script src="{{ asset('fe/js/scripts.js') }}"></script>
 
-    @foreach ($data as $js)
-        <script>
-            $('document').ready(function() {
-                setInterval(function() {
-                    // getRealData('{{ $js->id }}')
-                    var nomor = '{{ $js->id }}'
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-                    $.ajax({
-                        data: {
-                            nomor: nomor
-                        },
-                        url: "/",
-                        type: "POST",
-                        dataType: 'json',
-                        success: function(data) {
-                            var id = '#nomor-' + nomor;
-                            $(id).html(data);
-                            console.log(data);
-                        },
-                        error: function() {
-                            console.log('error');
-                        }
-                    });
-                }, 1500); //request every x seconds
-            });
-        </script>
-    @endforeach
+   
 </body>
 
 </html>

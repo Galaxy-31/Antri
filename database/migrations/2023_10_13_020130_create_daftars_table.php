@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pendaftarans', function (Blueprint $table) {
-            $table->BigInteger('nik')->primary();
+        Schema::create('daftars', function (Blueprint $table) {
+            $table->id();
+            $table->BigInteger('nik');
             $table->string('nama',70);
             $table->string('tmpt_lhr',50);
             $table->date('tgl_lhir');
@@ -25,8 +26,6 @@ return new class extends Migration
             $table->enum('status',['Kawin','Belum Kawin']);
             $table->string('pekerjaan',50);
             $table->enum('kewarga',['WNI','WNA']);
-            $table->date('berlaku');
-            $table->string('foto',200)->nullable();
             $table->timestamps();
         });
     }
@@ -38,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pendaftarans');
+        Schema::dropIfExists('daftars');
     }
 };

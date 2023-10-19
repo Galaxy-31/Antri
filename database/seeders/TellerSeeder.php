@@ -21,7 +21,7 @@ class TellerSeeder extends Seeder
         User::create([
             'role' => 'teller',
             'name' => 'Kahfi Nurfajar',
-            'email' => 'teller@admin.com',
+            'email' => 'teller@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('teller123'),
             'remember_token' => Str::random(10),

@@ -1,7 +1,7 @@
 @extends('layouts.backend.master')
 
 @section('title')
-    Kelola Loket
+    Pendaftaran
 @endsection
 
 @section("content")
@@ -156,12 +156,12 @@
                 <textarea name="alamat" class="form-control">{{old('alamat')}}</textarea>
             </div>
 
-            <div class="form-group col-2">
+            {{-- <div class="form-group col-2">
                 <label>RT : </label>
                 <input type="numer" name="rt" value="{{old('rt')}}" class="form-control" required/>
-            </div>
+            </div> --}}
 
-            <div class="form-group col-2">
+            {{-- <div class="form-group col-2">
                 <label>RW : </label>
                 <input type="numer" name="rw" value="{{old('rw')}}" class="form-control" required/>
             </div>
@@ -174,7 +174,7 @@
             <div class="form-group col-4">
                 <label>Kecamatan : </label>
                 <input type="text" name="kec" value="{{old('kec')}}" class="form-control" required/>
-            </div>
+            </div> --}}
 
             <div class="form-group col-6">
                 <label>Agama : </label>
@@ -220,7 +220,7 @@
         </div>
         <br>
         <hr>
-        <input type="submit" class="btn btn-primary" value="Tambah">
+        <input type="submit" class="btn btn-primary" value="Submit">
       </form>
     </div>
   </div>

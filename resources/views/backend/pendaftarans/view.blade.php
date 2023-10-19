@@ -45,11 +45,6 @@
                     <th>Jenis Kelamin</th>
                     <th>Golongan Darah</th>
                     <th>Alamat</th>
-                    <th>Rt</th>
-                    <th>RW</th>
-                    <th>Desa</th>
-                    <th>Kecamatan</th>
-                    <th>Agama</th>
                     <th>Status Perkawinan</th>
                     <th>Pekerjaan</th>
                     <th>Kewarganegaraan</th>
@@ -57,7 +52,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($pendaftarans as $dd)
+                @foreach ($pendaftarans as $pendaftaran)
                    <tr>
                    <td>
                         @if($pendaftaran->foto)
@@ -76,18 +71,22 @@
                     <td> {{$dd->jenkel}}</td>
                     <td> {{$dd->goldarah}}</td>
                     <td> {{$dd->alamat}}</td>
-                    <td> {{$dd->rt}}</td>
-                    <td> {{$dd->rw}}</td>
-                    <td> {{$dd->kel}}</td>
-                    <td> {{$dd->kec}}</td>
                     <td> {{$dd->agama}}</td>
                     <td> {{$dd->kawin}}</td>
                     <td> {{$dd->pekerjaan}}</td>
                     <td> {{$dd->kewarga}}</td>
                     <td> {{$dd->image}}</td>
-                   <tr>
-
-                   </tr>
+                    <tr>
+                      <a href="{{route('pendaftarans.show', ['id' => $p->nik])}}" class="btn btn-info">Detail</a>
+                      <a href="{{route('pendaftarans.edit', ['id' => $p->nik])}}" class="btn btn-success">Ubah</a>
+                      <form  class="d-inline" action="{{route('pendaftarans.destroy', ['id' => $p->nik])}}"
+                      method="POST"  onsubmit="return confirm('Apakah Anda Yakin Akan Menghapus pendaftaran?')" >
+                      @csrf
+                      <input type="hidden"name="_method" value="DELETE"/>
+                      <button type="submit" class="btn btn-danger" >Hapus</button>
+                      </form>
+                 </td>
+                 </tr>
                 @endforeach
                 </tbody>
                 </table>
